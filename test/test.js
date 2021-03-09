@@ -22,7 +22,10 @@ describe("Phrase", function() {
       let punctuatedPalindrome = new Phrase("A man, a plan, a canal—Panama!");
       assert.strictEqual(punctuatedPalindrome.processedContent(), "amanaplanacanalpanama");
     });
-    
+    it("should return the empty string on no match", function() {
+      let noLetters = new Phrase("1234.56");
+      assert.strictEqual(noLetters.letters(), "");
+    });
   });
   
   describe("#letters",  function() {

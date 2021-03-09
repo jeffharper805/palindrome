@@ -23,7 +23,7 @@ function Phrase(content) {
   // Returns content processed for palindrome testing.
   // discards punctuation and whitespace.
   this.processedContent = function processedContent() {
-    return this.content.split(/[\W]+/g).join("").toLowerCase();
+    return this.content.split(/[\W]+/g || []).join("").toLowerCase();
   }
 
   // Returns true if the phrase is a palindrome, false otherwise.
@@ -31,9 +31,11 @@ function Phrase(content) {
     return this.processedContent() === this.processedContent().reverse();
   } 
   this.letters = function(  ) {
-  	return this.content.split(/[\W]+/g).join("");        // stub return value
+//   	return this.content.split(/[\W]+/g).join("");        // stub return value
+  	return (this.content.match(/[a-z]/gi) || []).join("");
   }
 }
+
 
 let punct = new Phrase("A man, a plan, a canal—Panama!");
 console.log(punct.palindrome());
